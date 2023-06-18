@@ -1,5 +1,7 @@
+import CategoryContainer from './components/category-menu/category-menu.component';
+
 const App = () => {
-  return <h1>Hello World</h1>;
+  return <CategoryContainer />;
 };
 
 export default App;
