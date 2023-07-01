@@ -1,5 +1,4 @@
 import './category-item.styles.scss';
-import PropTypes from 'prop-types';
 
 const CategoryItem = ({ category: { imageUrl, title } }) => {
   return (
@@ -16,13 +15,6 @@ const CategoryItem = ({ category: { imageUrl, title } }) => {
       </div>
     </div>
   );
-};
-
-CategoryItem.propTypes = {
-  category: PropTypes.shape({
-    imageUrl: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
-  })
 };
 
 export default CategoryItem;

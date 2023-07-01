@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './form-input.styles.scss';
 
 const FormInput = ({ label, ...otherProps }) => {
@@ -12,17 +11,6 @@ const FormInput = ({ label, ...otherProps }) => {
       )}
     </div>
   );
-};
-
-FormInput.propTypes = {
-  label: PropTypes.string.isRequired,
-  otherProps: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    required: PropTypes.bool.isRequired,
-    value: PropTypes.string.isRequired,
-    onchange: PropTypes.func.isRequired
-  })
 };
 
 export default FormInput;
