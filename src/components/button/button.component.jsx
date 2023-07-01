@@ -2,7 +2,7 @@ import './button.styles.scss';
 import PropTypes from 'prop-types';
 
 const BUTTON_TYPE_CLASSES = {
-  google: 'google-sigh-in',
+  google: 'google-sign-in',
   inverted: 'inverted'
 };
 
