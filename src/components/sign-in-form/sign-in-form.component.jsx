@@ -18,19 +18,16 @@ const SignInForm = () => {
 
   const { email, password } = formFields;
 
-  // eslint-disable-next-line no-unused-vars
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
-  const signInWithGoogle = () => {
-    signInWithGooglePopup()
-      .then(({ user }) => {
-        createUserDocumentFromAuth(user);
-      })
-      .catch((error) => {
-        console.error(error.code);
-      });
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithGooglePopup();
+    } catch (error) {
+      console.error(error.code);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -38,12 +35,14 @@ const SignInForm = () => {
 
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
+      resetFormFields();
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':
           alert('Incorrect password for the given email address');
           break;
         case 'auth/user-not-found':
+          resetFormFields();
           alert('User not found for the given email address! Please sign-up insted.');
           break;
         default:
