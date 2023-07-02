@@ -1,9 +1,9 @@
 import CategoryItem from '../category-item/category-item.component';
-import Categories from '../../data/category.data.json';
+import CATEGORY_DATA from '../../data/category.data.json';
 import './category-container.scss';
 
 const CategoryContainer = () => {
-  const { categories } = Categories;
+  const { categories } = CATEGORY_DATA;
   return (
     <div className={'categories-container'}>
       {categories.map((category) => {
