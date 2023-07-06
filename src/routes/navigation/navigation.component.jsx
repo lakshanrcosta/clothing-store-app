@@ -5,12 +5,12 @@ import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CardDropdown from '../../components/cart-dropdown/card-dropdown.component';
 import { UserContext } from '../../contexts/user.contexts';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
-import { CartIsOpenContext } from '../../contexts/is-cart-open.context';
+import { CardContext } from '../../contexts/cart.context';
 import './navigation.styles.scss';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartIsOpenContext);
+  const { isCartOpen } = useContext(CardContext);
 
   return (
     <Fragment>
