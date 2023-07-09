@@ -4,6 +4,7 @@ import './category-container.scss';
 
 const CategoryContainer = () => {
   const { categories } = CATEGORY_DATA;
+  console.log(categories);
   return (
     <div className={'categories-container'}>
       {categories.map((category) => {
