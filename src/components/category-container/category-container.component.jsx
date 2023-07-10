@@ -1,15 +1,15 @@
 import CategoryItem from '../category-item/category-item.component';
 import CATEGORY_DATA from '../../data/category.data.json';
-import './category-container.scss';
+import { CategoriesContainer } from './category-container';
 
 const CategoryContainer = () => {
   const { categories } = CATEGORY_DATA;
   return (
-    <div className={'categories-container'}>
+    <CategoriesContainer>
       {categories.map((category) => {
         return <CategoryItem key={category.id} category={category} />;
       })}
-    </div>
+    </CategoriesContainer>
   );
 };
 
