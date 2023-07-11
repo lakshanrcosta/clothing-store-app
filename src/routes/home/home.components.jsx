@@ -4,8 +4,8 @@ import CategoryContainer from '../../components/category-container/category-cont
 const Home = () => {
   return (
     <div>
-      <Outlet />
       <CategoryContainer />
+      <Outlet />
     </div>
   );
 };
