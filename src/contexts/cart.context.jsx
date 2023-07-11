@@ -60,16 +60,6 @@ const cartReducer = (state, action) => {
         ...state,
         ...payload
       };
-    // case CART_ACTION_TYPES.setCartItemCount:
-    //   return {
-    //     ...state,
-    //     cartItemCount: payload
-    //   };
-    // case CART_ACTION_TYPES.setCartTotal:
-    //   return {
-    //     ...state,
-    //     cartTotal: payload
-    //   };
     default:
       throw new Error(`Unhandled type: ${type} in userReducer`);
   }
