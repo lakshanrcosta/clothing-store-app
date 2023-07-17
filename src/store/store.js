@@ -4,7 +4,9 @@ import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
 import { rootReducer } from './root-reducer';
 
-const middleware = [logger];
+const middleware = [process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled' && logger].filter(
+  Boolean
+);
 
 const persistConfig = {
   key: 'root',
@@ -13,9 +15,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const createStoreWithParams =
-  process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled'
-    ? createStore(persistedReducer, undefined, compose(applyMiddleware(...middleware)))
-    : createStore(persistedReducer, undefined);
-export const store = createStoreWithParams;
+
+const composeEnhancers = compose(applyMiddleware(...middleware));
+export const store = createStore(persistedReducer, undefined, composeEnhancers);
 export const persistor = persistStore(store);
