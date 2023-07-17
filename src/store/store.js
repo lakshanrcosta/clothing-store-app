@@ -13,6 +13,9 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const composeEnhancers = compose(applyMiddleware(...middleware));
-export const store = createStore(persistedReducer, undefined, composeEnhancers);
+const createStoreWithParams =
+  process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled'
+    ? createStore(persistedReducer, undefined, compose(applyMiddleware(...middleware)))
+    : createStore(persistedReducer, undefined);
+export const store = createStoreWithParams;
 export const persistor = persistStore(store);
