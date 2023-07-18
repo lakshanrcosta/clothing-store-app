@@ -3,10 +3,12 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
 import { rootReducer } from './root-reducer';
+import thunk from 'redux-thunk';
 
-const middleware = [process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled' && logger].filter(
-  Boolean
-);
+const middleware = [
+  process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled' && logger,
+  thunk
+].filter(Boolean);
 
 const persistConfig = {
   key: 'root',
