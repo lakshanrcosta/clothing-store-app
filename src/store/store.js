@@ -6,14 +6,14 @@ import { rootReducer } from './root-reducer';
 import thunk from 'redux-thunk';
 
 const middleware = [
-  process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabled' && logger,
+  process.env.REACT_APP_REDUX_LOGGER_ENABLED === 'enabledd' && logger,
   thunk
 ].filter(Boolean);
 
 const persistConfig = {
   key: 'root',
   storage: storage,
-  blacklist: ['user']
+  whitelist: ['cart']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
