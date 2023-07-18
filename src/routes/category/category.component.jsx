@@ -7,12 +7,12 @@ import { CategoryContainer, Title } from './category.styles';
 
 const Category = () => {
   const { category } = useParams();
-  const categoriesArray = useSelector(selectCategoriesMap);
-  const [products, setProducts] = useState(categoriesArray[category]);
+  const categories = useSelector(selectCategoriesMap);
+  const [products, setProducts] = useState(categories[category]);
 
   useEffect(() => {
-    setProducts(categoriesArray[category]);
-  }, [category, categoriesArray]);
+    setProducts(categories[category]);
+  }, [category, categories]);
 
   return (
     <Fragment>

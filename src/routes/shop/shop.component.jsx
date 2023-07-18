@@ -11,8 +11,8 @@ const Shop = () => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categoriesArray = await getCollectionAndDocument('categories');
-      dispatch(setCategories(categoriesArray));
+      const categories = await getCollectionAndDocument('categories');
+      dispatch(setCategories(categories));
     };
     getCategories();
   }, []);
